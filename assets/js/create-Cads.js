@@ -22,7 +22,7 @@ async function createCard(
     h3.textContent = broadcasterTitle;
 
     let button = document.createElement("p");
-    button.textContent = "Assistir";
+    button.textContent = "Watch Video";
     button.classList.add("tv-channels__button");
 
     li.appendChild(img);
