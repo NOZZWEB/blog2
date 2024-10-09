@@ -1,0 +1,32 @@
+name: Node.js application
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  first-job:
+    name: Build Node.js application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Node.js version
+        run: node --version
+
+      - name: Check NPM version
+        run: npm --version
+
+      - uses: actions/checkout@v2
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Execute Node application
+        run: node get-lives-urls.js
+
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A .
+          git commit -m "Update lives urls"
+          git push
